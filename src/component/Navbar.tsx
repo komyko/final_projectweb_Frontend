@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "../assets/bet.png";
 import { useNavigate } from "react-router-dom";
 const navigation = [
-  { name: "Home", href: "/", current: true },
+  { name: "Home", href: "/", current: false },
   { name: "News", href: "/news", current: false },
   { name: "Score", href: "#", current: false },
   { name: "About Us", href: "#", current: false },

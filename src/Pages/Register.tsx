@@ -62,7 +62,7 @@ const Register = () => {
       <div className="w-full max-w-md space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Sign in to your account
+            kuy oak
           </h2>
         </div>
         <div className="-space-y-px rounded-md shadow-sm">

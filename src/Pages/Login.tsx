@@ -19,6 +19,8 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  
+
   const handleOnClick = async () => {
     if (uid && password) {
       const { status, data, msg } = await login({
@@ -37,6 +39,10 @@ const Login = () => {
       }
     }
   };
+
+  const registerClick = async () =>{
+    navigate("/Register")
+  }
 
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -82,6 +88,7 @@ const Login = () => {
             </span>
             Sign in
           </button>
+          <button type="submit" onClick={registerClick}> register </button>
         </div>
       </div>
     </div>
