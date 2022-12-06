@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import News from "./Pages/News";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Table from "./Pages/Table";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/home" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/news" element={<News />}></Route>
+          <Route path="/players" element={<News />}></Route>
+          <Route path="/table" element={<Table />}></Route>
           <Route path="/Register" element={<Register />}></Route>
         </Routes>
       </BrowserRouter>

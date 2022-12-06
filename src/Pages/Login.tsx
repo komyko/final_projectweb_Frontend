@@ -31,7 +31,7 @@ const Login = () => {
         if (data.result === "OK") {
           localStorage.setItem("username", data.data.name);
           localStorage.setItem("email", data.data.email);
-          navigate("/");
+          navigate("/Home");
           window.location.reload();
         } else if (data.result === "nOK") {
           window.alert(msg);

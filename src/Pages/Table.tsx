@@ -22,8 +22,7 @@ function News() {
   return (
     <div className="App">
      
-      <iframe id="iframe-score108" width="100%" height="520" frameBorder="0" scrolling="no" src="https://www.score108.com/soccer/scoreAPI" ></iframe> 
-      
+     <iframe id="iframe-score108" width="100%" height="520" frameBorder="0" scrolling="no" src="https://www.score108.com/soccer/standingAPI" ></iframe>
       <Footer />
     </div>
   );

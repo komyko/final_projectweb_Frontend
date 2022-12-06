@@ -5,9 +5,9 @@ import logo from "../assets/bet.png";
 import { useNavigate } from "react-router-dom";
 const navigation = [
   { name: "Home", href: "/", current: false },
-  { name: "News", href: "/news", current: false },
-  { name: "Score", href: "#", current: false },
-  { name: "About Us", href: "#", current: false },
+  { name: "Score", href: "/players", current: false },
+  { name: "Table Score", href: "/table", current: false },
+  { name: "Blog", href: "/blog", current: false },
 ];
 
 function classNames(...classes: string[]) {

@@ -8,7 +8,7 @@ const Footer: FC = () => {
           <div className="mb-6 md:mb-0 ml-5">
             <a className="flex items-center">
               <img
-                src="http://cosci.swu.ac.th/img/logo.svg"
+                src=""
                 className="mr-3 h-16"
                 alt=""
               />
