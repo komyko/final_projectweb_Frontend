@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 
 interface CardNews {
-  title: String;
-  image: String;
-  detail: String;
-  link: String;
+  title: string;
+  image: string;
+  detail: string;
+  link: string;
 }
 
 const Card: FC<CardNews> = (props) => {
