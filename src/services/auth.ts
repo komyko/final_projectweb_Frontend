@@ -30,17 +30,26 @@ export const login = async ({
     });
 };
 
-export const Register = async ({
+export const register = async ({
   user_id,
+  name,
   password,
+  email,
+  tel,
 }: {
   user_id: string;
+  name: string
   password: string;
+  email: string
+  tel: string
 }) => {
   return axios
-    .post<LoginResponse>("http://localhost:8081/api/auth/register", {
-        user_id: user_id,
-        password: password
+    .post("http://localhost:8081/api/auth/register", {
+      user_id : user_id,
+      name : name,
+      password : password,
+      email : email,
+      tel : tel
     })
     .then((res) => {
       return {

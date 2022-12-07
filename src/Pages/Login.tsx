@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Textfield from "../component/Textfield";
 import { login } from "../services/auth";
+import successLogin from "../util/loginSuccess";
 
 const Login = () => {
   const [uid, setUid] = useState<string>("");
@@ -19,8 +20,6 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  
-
   const handleOnClick = async () => {
     if (uid && password) {
       const { status, data, msg } = await login({
@@ -31,6 +30,7 @@ const Login = () => {
         if (data.result === "OK") {
           localStorage.setItem("username", data.data.name);
           localStorage.setItem("email", data.data.email);
+          successLogin();
           navigate("/Home");
           window.location.reload();
         } else if (data.result === "nOK") {
@@ -40,9 +40,9 @@ const Login = () => {
     }
   };
 
-  const registerClick = async () =>{
-    navigate("/Register")
-  }
+  const registerClick = async () => {
+    navigate("/Register");
+  };
 
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -88,7 +88,10 @@ const Login = () => {
             </span>
             Sign in
           </button>
-          <button type="submit" onClick={registerClick}> register </button>
+          <button type="submit" onClick={registerClick}>
+            {" "}
+            register{" "}
+          </button>
         </div>
       </div>
     </div>

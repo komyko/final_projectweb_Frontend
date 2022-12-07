@@ -2,7 +2,8 @@ import { LockClosedIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Textfield from "../component/Textfield";
-import { login } from "../services/auth";
+import { register } from "../services/auth";
+import success from "../util/registerSuccess";
 
 const Register = () => {
   const [uid, setUid] = useState<string>("");
@@ -20,17 +21,17 @@ const Register = () => {
 
   const handleOnNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setUid(e.target.value);
+    setName(e.target.value);
   };
 
   const handleOnEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setUid(e.target.value);
+    setEmail(e.target.value);
   };
 
   const handleOnTelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setUid(e.target.value);
+    setTel(e.target.value);
   };
 
   const handleOnPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,27 +40,20 @@ const Register = () => {
   };
 
   const handleOnClick = async () => {
-    if (uid && password) {
-      const { status, data, msg } = await login({
-        user_id: uid,
-        password: password,
-      });
-      if (status && data) {
-        if (data.result === "OK") {
-          localStorage.setItem("username", data.data.name);
-          localStorage.setItem("email", data.data.email);
-          navigate("/");
-          window.location.reload();
-        } else if (data.result === "nOK") {
-          window.alert(msg);
-        }
-      }
-    }
+    const { status, data, msg } = await register({
+      user_id: uid,
+      name: name,
+      password: password,
+      email: email,
+      tel: tel,
+    });
+    success();
+    navigate("/Login");
   };
 
-  const registerClick = async () =>{
-    navigate("/Login")
-  }
+  // const registerClick = async () =>{
+  //   navigate("/Login")
+  // }
 
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -82,12 +76,42 @@ const Register = () => {
           </div>
           <div>
             <Textfield
+              onChange={handleOnNameChange}
+              value={name}
+              label={"Name"}
+              id={"name"}
+              name={"name"}
+              type={"text"}
+            />
+          </div>
+          <div>
+            <Textfield
               onChange={handleOnPasswordChange}
               value={password}
               label={"Password"}
               id={"password"}
               name={"password"}
               type={"password"}
+            />
+          </div>
+          <div>
+            <Textfield
+              onChange={handleOnEmailChange}
+              value={email}
+              label={"Email"}
+              id={"email"}
+              name={"email"}
+              type={"email"}
+            />
+          </div>
+          <div>
+            <Textfield
+              onChange={handleOnTelChange}
+              value={tel}
+              label={"Tel"}
+              id={"tel"}
+              name={"tel"}
+              type={"text"}
             />
           </div>
         </div>
@@ -105,7 +129,10 @@ const Register = () => {
             </span>
             Sign in
           </button>
-          <button type="submit" onClick={registerClick}> Login </button>
+          <button type="submit" onClick={handleOnClick}>
+            {" "}
+            Login{" "}
+          </button>
         </div>
       </div>
     </div>
