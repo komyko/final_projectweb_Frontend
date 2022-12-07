@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Textfield from "../component/Textfield";
 import { login } from "../services/auth";
 import successLogin from "../util/loginSuccess";
+import errorAuth from "../util/authError";
 
 const Login = () => {
   const [uid, setUid] = useState<string>("");
@@ -88,9 +89,9 @@ const Login = () => {
             </span>
             Sign in
           </button>
-          <button type="submit" onClick={registerClick}>
-            {" "}
-            register{" "}
+          <button className="mt-4 group relative flex w-full justify-center rounded-md border border-transparent bg-gray-200 py-2 px-4 text-sm font-medium text-gray-800 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit" onClick={registerClick}>
+            
+            register
           </button>
         </div>
       </div>

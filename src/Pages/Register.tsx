@@ -1,16 +1,20 @@
 import { LockClosedIcon } from "@heroicons/react/24/outline";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Textfield from "../component/Textfield";
 import { register } from "../services/auth";
 import success from "../util/registerSuccess";
-
+import errorAuth from "../util/authError";
 const Register = () => {
   const [uid, setUid] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [tel, setTel] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  
+useEffect(() => {
+  console.log(uid)
+})
 
   const navigate = useNavigate();
 
@@ -40,20 +44,24 @@ const Register = () => {
   };
 
   const handleOnClick = async () => {
-    const { status, data, msg } = await register({
-      user_id: uid,
-      name: name,
-      password: password,
-      email: email,
-      tel: tel,
-    });
-    success();
-    navigate("/Login");
-  };
+    if (uid  || name || password || email || tel ) {
+      const { status, data, msg } = await register({
+          user_id: uid,
+          name: name,
+          password: password,
+          email: email,
+          tel: tel,
+        });
+        success();
+        navigate("/Login");
+      };
+      errorAuth()
+    } 
+    
 
-  // const registerClick = async () =>{
-  //   navigate("/Login")
-  // }
+  const loginClick = async () =>{
+    navigate("/Login")
+  }
 
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -129,9 +137,9 @@ const Register = () => {
             </span>
             Sign in
           </button>
-          <button type="submit" onClick={handleOnClick}>
-            {" "}
-            Login{" "}
+          <button className="mt-4 group relative flex w-full justify-center rounded-md border border-transparent bg-gray-200 py-2 px-4 text-sm font-medium text-gray-800 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" type="submit" onClick={loginClick}>
+           
+            login
           </button>
         </div>
       </div>

@@ -18,5 +18,6 @@ export const getFootballData = async () => {
         msg: error.message ? error.message : "error",
       };
     });
+  
 };
 

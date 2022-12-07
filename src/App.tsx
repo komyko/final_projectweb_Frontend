@@ -7,6 +7,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Table from "./Pages/Table";
 
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
           <Route path="/players" element={<News />}></Route>
           <Route path="/table" element={<Table />}></Route>
           <Route path="/Register" element={<Register />}></Route>
+         
         </Routes>
       </BrowserRouter>
     </div>
