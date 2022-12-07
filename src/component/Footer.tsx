@@ -20,18 +20,18 @@ const Footer: FC = () => {
               <i className="fa fa-asterisk"></i>
             </div>
             <div className="col-lg-12">
-              อาคารวิทยาลัยนวัตกรรมสื่อสารสังคม (ตึกริมน้ำ) &nbsp;
-              <span className="nextlineSM">ฝ่ายวิชาการและวิจัย ชั้น 15</span>
+            นาย ณัฐชนันท์  &nbsp;
+              <span className="nextlineSM">เจียรสุวรรณ  </span>
             </div>
             <div className="col-lg-12">
-              <u>ติดต่อในวันเวลาราชการ</u> &nbsp;
+              นาย ศุภกฤต  &nbsp;
               <span className="nextlineSM">
-                วันจันทร์ถึงศุกร์ เวลา 08:30น. - 16:30น.
+              เผือกประพันธุ์  
               </span>
             </div>
             <div className="col-lg-12">
               <span className="nextlineSM">
-                (ยกเว้นวันหยุดนักขัตฤกษ์) โทร 02-649-5000 ต่อ 11268
+              นาย สมชัย ตันติชาญชัยกุล 
               </span>
             </div>
           </div>
