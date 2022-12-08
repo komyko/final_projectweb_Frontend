@@ -1,10 +1,10 @@
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
-export default function success() {
-    Swal.fire({
-        icon: 'success',
-        title: 'สมัครสมาชิกสำเร็จ',
-        showConfirmButton: false,
-        timer: 1500
-    })
+export default function success(text: string) {
+  Swal.fire({
+    icon: "success",
+    title: text,
+    showConfirmButton: false,
+    timer: 1500,
+  });
 }

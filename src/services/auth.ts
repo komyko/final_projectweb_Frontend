@@ -11,14 +11,14 @@ export const login = async ({
 }) => {
   return axios
     .post<LoginResponse>("http://localhost:8081/api/auth/login", {
-        user_id: user_id,
-        password: password
+      user_id: user_id,
+      password: password,
     })
     .then((res) => {
       return {
         status: true,
         data: res.data,
-        msg: res.data.message
+        msg: res.data.message,
       };
     })
     .catch((error) => {
@@ -38,24 +38,24 @@ export const register = async ({
   tel,
 }: {
   user_id: string;
-  name: string
+  name: string;
   password: string;
-  email: string
-  tel: string
+  email: string;
+  tel: string;
 }) => {
   return axios
-    .post("http://localhost:8081/api/auth/register", {
-      user_id : user_id,
-      name : name,
-      password : password,
-      email : email,
-      tel : tel
+    .post<RegisterResponse>("http://localhost:8081/api/auth/register", {
+      user_id: user_id,
+      name: name,
+      password: password,
+      email: email,
+      tel: tel,
     })
     .then((res) => {
       return {
         status: true,
         data: res.data,
-        msg: res.data.message
+        msg: res.data.message,
       };
     })
     .catch((error) => {
